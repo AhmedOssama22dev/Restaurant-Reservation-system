@@ -8,6 +8,7 @@ public class OnBoardingViewController extends Stage {
 
 	public OnBoardingView onBoardingView = new OnBoardingView();
 	
+	
 	public OnBoardingViewController(StageStyle style) {
 		super(style);
 		
@@ -15,6 +16,14 @@ public class OnBoardingViewController extends Stage {
 		
 		setTitle("Restaurant Reservation System");
 		setResizable(false);
+		setupEventHandlers();
+		
+	}
+	
+	private void setupEventHandlers() {
+		onBoardingView.sampleButton.setOnAction(actionEvent ->  {
+			onBoardingView.sampleLabel.setText("Ahmed Ossama");			
+		});;
 	}
 
 }

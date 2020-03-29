@@ -7,7 +7,8 @@ import javafx.scene.layout.*;
 public class OnBoardingView extends Scene {
 
 	public static HBox horizontalStack = new HBox();
-	public Label l = new Label("Hello, World!"); 
+	public Label sampleLabel = new Label("Hello, World!");
+	public Button sampleButton = new Button("Hit Me!");
 	
 	public OnBoardingView() {
 		super(horizontalStack, 800, 480);
@@ -15,7 +16,8 @@ public class OnBoardingView extends Scene {
 	}
 
 	private void setupView() {		
-		horizontalStack.getChildren().add(l);
+		
+		horizontalStack.getChildren().addAll(sampleLabel, sampleButton);
 	}
 	
 }
