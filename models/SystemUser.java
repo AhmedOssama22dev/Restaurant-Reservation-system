@@ -27,4 +27,10 @@ public class SystemUser {
 			break;
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "SystemUser [name=" + name + ", role=" + role + ", username=" + username + ", password=" + password
+				+ "]";
+	}
 }

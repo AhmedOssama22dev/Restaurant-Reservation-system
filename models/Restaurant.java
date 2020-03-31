@@ -11,6 +11,7 @@ import org.w3c.dom.NodeList;
 import java.io.File;
 import java.util.ArrayList;
 
+
 public class Restaurant {
 
 	public static Restaurant mainRestaurant = new Restaurant();
@@ -18,6 +19,24 @@ public class Restaurant {
 	public ArrayList<SystemUser> systemUsers = new ArrayList<SystemUser>();
 	public ArrayList<Table> tables = new ArrayList<Table>();
 	public ArrayList<Dish> dishes = new ArrayList<Dish>();
+	
+	/**
+	 * @return the returned user will be null if the authentication process fails
+	 *
+	 */
+	public SystemUser authenticate(String username, String password) {
+		
+		SystemUser returnedUser = null;
+		
+		for (SystemUser user : systemUsers) {
+			if (user.username.equals(username) && user.password.equals(password)) {
+				returnedUser = user;
+				break;
+			}
+		}
+		
+		return returnedUser;
+	}
 	
 	private Restaurant() {
 		

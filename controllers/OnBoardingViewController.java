@@ -2,7 +2,10 @@ package controllers;
 
 
 import javafx.stage.*;
+import models.*;
 import views.OnBoardingView;
+import javafx.event.*;
+
 
 public class OnBoardingViewController extends Stage {
 
@@ -21,9 +24,20 @@ public class OnBoardingViewController extends Stage {
 	}
 	
 	private void setupEventHandlers() {
-		onBoardingView.sampleButton.setOnAction(actionEvent ->  {
-			onBoardingView.sampleLabel.setText("Ahmed Ossama");			
-		});;
+		onBoardingView.loginButton.setOnAction(new EventHandler<ActionEvent>() {	
+			
+			@Override
+			public void handle(ActionEvent e) {
+				SystemUser authenticatedUser = Restaurant.mainRestaurant.authenticate(onBoardingView.usernameField.getText(), onBoardingView.passwordField.getText());
+				if (authenticatedUser != null) {
+					System.out.print("Logged In Dashboard: " + authenticatedUser.role.toString());
+				}
+			}
+			
+		});
 	}
 
+	
+	
+	
 }
