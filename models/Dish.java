@@ -32,6 +32,9 @@ public class Dish {
 			break;
 		}
 	}
+        public Dish() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String toString() {
