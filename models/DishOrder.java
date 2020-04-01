@@ -1,21 +1,24 @@
 package models;
 
-public class DishOrder {
+public class DishOrder extends Dish{
 	private  Float price; //will be set from the parser
 
 
-    public float getPrice() {
+    public void setPrice(Float price) {
+		this.price = price;
+	}
+	public Float getPrice() {
         return price;
     }
-    /*
-    * type appetizer will given 0,main course 1 , dessert 2
-    * */
-    public void setPriceAfterTax(int type,float price) {
-//        switch (type)
-//        {
-//            case 0:this.price=price+(price*appetizerTax);
-//            case 1:this.price=price+(price*mainCourseTax);
-//            case 2:this.price=price+(price*dessertTax);
-//        }
-    }
+
+
+	
+	public DishOrder() {
+		super();
+	}
+	public Float setPriceAfterTax ( int typeIndex, Integer nDishes,final Float tax) {
+    	Integer totalPriceBeforeTax=Restaurant.mainRestaurant.dishes.get(typeIndex).price*nDishes;
+		setPrice(totalPriceBeforeTax +tax*totalPriceBeforeTax);
+		return getPrice();
+	}
 }
