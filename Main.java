@@ -28,8 +28,6 @@ public class Main extends Application {
 		//showing clientDashBoard
 		Stage s=new Stage();
 		Parent root = FXMLLoader.load(getClass().getResource("/views/ClientDashBoardView.fxml"));
-		ClientDashBoardController clientDashBoardController = new ClientDashBoardController();
-		clientDashBoardController.setupEvents();
 		s.setScene(new Scene(root, 700, 700));
 		s.setMaximized(true);
 		s.show();
