@@ -78,8 +78,9 @@ public class Restaurant {
 					Integer tableNumber = Integer.parseInt(tableElement.getElementsByTagName("number").item(0).getTextContent());
 					Integer seatsCount = Integer.parseInt(tableElement.getElementsByTagName("number_of_seats").item(0).getTextContent());
 					Boolean isSmokingTable = Boolean.parseBoolean(tableElement.getElementsByTagName("smoking").item(0).getTextContent());
-					
-					tables.add(new Table(tableNumber, seatsCount, isSmokingTable)); 
+					Boolean isReservedTable = Boolean.parseBoolean(tableElement.getElementsByTagName("isReserved").item(0).getTextContent());
+					tables.add(new Table(tableNumber, seatsCount, isSmokingTable,isReservedTable)); 
+
 				}  
 			}
 			
