@@ -36,36 +36,42 @@
 <number>1</number>
 <number_of_seats>5</number_of_seats>
 <smoking>false</smoking>
-</table>
+	<isReserved>false</isReserved></table>
 <table>
 <number>2</number>
 <number_of_seats>12</number_of_seats>
 <smoking>false</smoking>
+	<isReserved>false</isReserved>
 </table>
 <table>
 <number>3</number>
 <number_of_seats>12</number_of_seats>
 <smoking>true</smoking>
+	<isReserved>false</isReserved>
 </table>
 <table>
 <number>4</number>
 <number_of_seats>4</number_of_seats>
 <smoking>false</smoking>
+	<isReserved>false</isReserved>
 </table>
 <table>
 <number>5</number>
 <number_of_seats>4</number_of_seats>
 <smoking>true</smoking>
+	<isReserved>false</isReserved>
 </table>
 <table>
 <number>6</number>
 <number_of_seats>7</number_of_seats>
 <smoking>true</smoking>
+	<isReserved>false</isReserved>
 </table>
 <table>
 <number>7</number>
 <number_of_seats>6</number_of_seats>
 <smoking>true</smoking>
+	<isReserved>false</isReserved>
 </table>
 </tables>
 <dishes>
