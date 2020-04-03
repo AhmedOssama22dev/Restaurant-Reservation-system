@@ -11,20 +11,12 @@ import javafx.fxml.Initializable;
 
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import javax.lang.model.element.Element;
-
-import org.omg.CORBA.PRIVATE_MEMBER;
-import org.w3c.dom.NodeList;
-
 import java.net.URL;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Separator;
 import javafx.scene.control.SplitPane;
@@ -35,13 +27,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 import models.DishOrder;
 import models.Restaurant;
-import models.SystemUser;
-import models.SystemUserRole;
 import models.Table;
-import models.XMLModifier;
 
 
 public class ClientDashBoardController implements Initializable{

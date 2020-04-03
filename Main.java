@@ -12,8 +12,8 @@ public class Main extends Application {
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		/*primaryStage = new OnBoardingViewController(StageStyle.UNDECORATED);
-		primaryStage.show();*/
+		primaryStage = new OnBoardingViewController(StageStyle.UNDECORATED);
+		primaryStage.show();
 		//showing clientDashBoard
 		Stage s=new Stage();
 		Parent root = FXMLLoader.load(getClass().getResource("views/ClientDashBoardView.fxml"));
