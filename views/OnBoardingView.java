@@ -24,9 +24,10 @@ public class OnBoardingView extends Scene {
 	public Label titleLabel = new Label("Restaurant Management System");
 	public Label managersLabel = new Label("Managers, view all tables, waiters and\n" + 
 			"chefs of the restaurant and get access to in-detail analytics.");
-	public Label clientsLabel = new Label("Clients, view the restaurant’s menu, available\n tables, make orders and reservations.");
-	public Label waitersLabel = new Label("Waiters, view today’s reservations.");
-	public Label chefsLabel = new Label("Chefs, view today’s ordered meals.");
+	public Label clientsLabel = new Label("Clients, view the restaurant"
+			+ "s menu, available\n tables, make orders and reservations.");
+	public Label waitersLabel = new Label("Waiters, view todays reservations.");
+	public Label chefsLabel = new Label("Chefs, view todays ordered meals.");
 
 	public Label welcomeLabel = new Label("Welcome Back");
 	public Label promptLabel = new Label("Provide the username and password to access dashboard.");
@@ -35,6 +36,8 @@ public class OnBoardingView extends Scene {
 	public PasswordField passwordField = new PasswordField();
 	
 	public Button loginButton = new Button("Login");
+	public Button closeButton = new Button("Dismiss");
+
 	
 	public OnBoardingView() {
 		super(hStack, 800, 480);
@@ -84,7 +87,7 @@ public class OnBoardingView extends Scene {
 		leftVStack.setSpacing(30);
 		
 		rightVStack.setStyle("-fx-background-color: rgba(0, 0, 0, 1.0);");
-		rightVStack.getChildren().addAll(welcomeLabel, promptLabel, usernameField, passwordField, loginButton);
+		rightVStack.getChildren().addAll(welcomeLabel, promptLabel, usernameField, passwordField, loginButton, closeButton);
 		rightVStack.setAlignment(Pos.TOP_CENTER);
 		rightVStack.setSpacing(30);
 	    rightVStack.setPadding(new Insets(30, 30, 0, 30));

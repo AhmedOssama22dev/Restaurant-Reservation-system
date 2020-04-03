@@ -256,7 +256,7 @@ public class ClientDashBoardController implements Initializable{
 
     @FXML
     void confirmReservation(ActionEvent event) {
-
+    	
 	 if(seats.getValue()=="5")
 		{
 		    Restaurant.mainRestaurant.setK(0);

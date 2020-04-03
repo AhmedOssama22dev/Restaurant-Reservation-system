@@ -10,7 +10,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-
+import javafx.collections.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -30,6 +30,10 @@ public class Restaurant {
 
 	private int k;
 
+	private Restaurant() {
+		fetchUpdatedData();
+	}
+	
 	public int getK() {
 	return k;
 }
@@ -131,8 +135,32 @@ public class Restaurant {
 
 
 	}
-	private Restaurant() {
+	
+	
+	
+	
+	public ObservableList<Reservation> fetchReservations() {
 
+		fetchUpdatedData();
+
+		ObservableList<Reservation> reservations = FXCollections.observableArrayList();
+		
+		for (Table table : tables) {
+			if (table.isReserved == true) {
+				Reservation reservation = new Reservation("John", table.tableNumber, table.seatsCount, table.isSmoking);
+				reservations.add(reservation);
+			}
+		}
+		
+		return reservations;
+	}
+	
+	private void fetchUpdatedData() {
+		
+		tables.clear();
+		dishes.clear();
+		systemUsers.clear();
+		
 		try {
 
 			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -197,5 +225,5 @@ public class Restaurant {
 			e.printStackTrace();
 		}
 	}
-
+	
 }
