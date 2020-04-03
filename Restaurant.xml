@@ -1,42 +1,48 @@
-<restaurant>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><restaurant>
 <users>
 <user>
 <name>Adam Smith</name>
 <role>Manager</role>
 <username>adam</username>
 <password>adam_manager</password>
-</user>
-<user>
+<payment/></user>
+	
+	<user>
 <name>John Doe</name>
 <role>Client</role>
 <username>john</username>
 <password>john_doe</password>
-</user>
+		<payment/>
+	</user>
 <user>
 <name>Brian Johnes</name>
 <role>Client</role>
 <username>brian</username>
 <password>mdir@admj%ar5qX2</password>
+	<payment/>
 </user>
 <user>
 <name>George Robben</name>
 <role>Waiter</role>
 <username>george</username>
 <password>k6987_#LpQ</password>
+	<payment/>
 </user>
 <user>
 <name>Tomas Hobbens</name>
 <role>Cooker</role>
 <username>hobbens_tom</username>
 <password>cooker_pass</password>
+	<payment/>
 </user>
 </users>
 <tables>
 <table>
-<number>1</number>
+
 <number_of_seats>5</number_of_seats>
 <smoking>false</smoking>
-	<isReserved>false</isReserved></table>
+	<isReserved>false</isReserved>
+	<number>1</number></table>
 <table>
 <number>2</number>
 <number_of_seats>12</number_of_seats>
