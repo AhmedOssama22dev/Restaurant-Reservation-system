@@ -8,6 +8,8 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -53,6 +55,14 @@ public class Restaurant {
 		}
 
 		return returnedUser;
+	}
+	
+	public static void showAlert(AlertType type, String title, String headerText, String contentText) {
+		Alert alert = new Alert(type);
+		alert.setTitle(title);
+		alert.setHeaderText(headerText);
+		alert.setContentText(contentText);
+		alert.showAndWait(); 
 	}
 	
 	public void xmlModifier(String doOperation,int k,boolean isReseved,Float payment,int clientIndex)

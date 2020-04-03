@@ -15,10 +15,6 @@ public class Main extends Application {
 		primaryStage = new OnBoardingViewController(StageStyle.UNDECORATED);
 		primaryStage.show();
 		//showing clientDashBoard
-		Stage s=new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("views/ClientDashBoardView.fxml"));
-		s.setScene(new Scene(root, 700, 700));
-		s.setMaximized(true);
-		s.show();
+		
     }
 }
