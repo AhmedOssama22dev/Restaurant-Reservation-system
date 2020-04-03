@@ -362,9 +362,10 @@ public class ClientDashBoardController implements Initializable{
 
     @FXML
     void orderChicken(ActionEvent event) {
-    	/*setnChicken(+1);
+    	setnChicken(+1);
 		setTotalPrice(+dishOrder.setPriceAfterTax(0, getnChicken(), mainTax));
-		totalPriceLbl.setText(""+getTotalPrice());*/
+		totalPriceLbl.setText(""+getTotalPrice());
+		payment+=getTotalPrice();
     }
 
     @FXML
