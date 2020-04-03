@@ -4,3 +4,6 @@
 /Restaurant.class
 /SystemUser.class
 /Table.class
+/DishCategory.class
+/SystemUserRole.class
+/XMLModifier.class
