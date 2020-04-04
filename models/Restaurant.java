@@ -69,15 +69,14 @@ public class Restaurant {
 		alert.showAndWait(); 
 	}
 	
-	public void xmlModifier(String doOperation,int k,boolean isReseved,Float payment,int clientIndex)
+	public void xmlModifier(int k,boolean isReseved)
 	{
 		try {
 			String filepath = "Restaurant.xml";
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
 			Document doc = docBuilder.parse(filepath);
-			if(doOperation=="table")
-			{
+			
 			// Get the root element
 			Node tables = doc.getElementsByTagName("table").item(k);
 			// loop the staff child node
@@ -95,25 +94,6 @@ public class Restaurant {
 				   node.setTextContent("false");
 			   }
 			}
-			}
-			else if (doOperation=="payment") {
-				// Get the root element
-				Node users = doc.getElementsByTagName("user").item(clientIndex);
-				// loop the staff child node
-				NodeList list = users.getChildNodes();
-
-				for (int i = 0; i < list.getLength(); i++) {
-
-		                Node node = list.item(i);
-				   // get the is reserved element, and update the value
-				   if ("payment".equals(node.getNodeName())) {
-					node.setTextContent(""+payment);
-				   }
-				   else
-					   node.setTextContent("0");
-				}
-			}
-
 			// write the content into xml file
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
