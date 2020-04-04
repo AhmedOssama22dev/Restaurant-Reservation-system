@@ -15,7 +15,9 @@ import controllers.*;
 public class OnBoardingViewController extends Stage {
 
 	public OnBoardingView onBoardingView = new OnBoardingView();
-	public Stage directedDashboard = new Stage();
+	public ClientDashBoardController clientDashboard;
+	public WaiterDashboardViewController waiterDashboard;
+	public CookerDashboardViewController cookerDashboard;
 	
 
 	public OnBoardingViewController(StageStyle style) {
@@ -39,11 +41,23 @@ public class OnBoardingViewController extends Stage {
 					if (authenticatedUser.role.equals(SystemUserRole.CLIENT)) {
 
 						try {
-							directedDashboard.setScene(new Scene(FXMLLoader.load(getClass().getResource("/views/ClientDashBoardView.fxml")), 1351, 705));
-							directedDashboard.setTitle("Client Dashboard");
-							directedDashboard.setResizable(false);
-							directedDashboard.setMaximized(false);
-							directedDashboard.show();
+							
+							if (clientDashboard == null) {
+								clientDashboard = new ClientDashBoardController();
+								clientDashboard.setScene(new Scene(FXMLLoader.load(getClass().getResource("/views/ClientDashBoardView.fxml")), 1351, 705));
+								clientDashboard.setTitle("Client Dashboard");
+								clientDashboard.setResizable(false);
+								clientDashboard.setMaximized(false);
+								clientDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
+	                                 public void handle(WindowEvent we) {
+	                                	   OnBoardingViewController.this.show();
+	                                	   clientDashboard.close();
+	                                 }
+								});
+							}
+							
+							clientDashboard.show();
+							
 						} catch (Exception e1) {
 							e1.printStackTrace();
 						}
@@ -52,23 +66,39 @@ public class OnBoardingViewController extends Stage {
 						
 					} else if (authenticatedUser.role.equals(SystemUserRole.WAITER)) {
 						
-						WaiterDashboardViewController dashboard = new WaiterDashboardViewController(StageStyle.DECORATED);
-						dashboard.setResizable(false);
-						dashboard.setMaximized(false);
-						dashboard.setReservations(Restaurant.mainRestaurant.fetchReservations());
-						dashboard.setWaiterUser(authenticatedUser);
-						dashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                                 public void handle(WindowEvent we) {
-                                	 OnBoardingViewController.this.show();
-                                	 directedDashboard = null;
-                                 }
-                        });
-						
-						directedDashboard = dashboard;
-						directedDashboard.show();
+						if (waiterDashboard == null) {
+							waiterDashboard = new WaiterDashboardViewController(StageStyle.DECORATED);
+							waiterDashboard.setResizable(false);
+							waiterDashboard.setMaximized(false);
+							waiterDashboard.setReservations(Restaurant.mainRestaurant.fetchReservations());
+							waiterDashboard.setWaiterUser(authenticatedUser);
+							waiterDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
+	                                 public void handle(WindowEvent we) {
+	                                	   OnBoardingViewController.this.show();
+	                                	   waiterDashboard.close();
+	                                 }
+	                        });
+						}
+				
+						waiterDashboard.show();
 						
 					} else {
-						// CHEF
+						
+						if (cookerDashboard == null) {
+							cookerDashboard = new CookerDashboardViewController(StageStyle.DECORATED);
+							cookerDashboard.setResizable(false);
+							cookerDashboard.setMaximized(false);
+							cookerDashboard.setOrderedMeals(Restaurant.mainRestaurant.fetchOrderedMeals());
+							cookerDashboard.setCookerUser(authenticatedUser);
+							cookerDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
+	                                 public void handle(WindowEvent we) {
+	                                	   OnBoardingViewController.this.show();
+	                                	   cookerDashboard.close();
+	                                 }
+	                        });
+						}
+				
+						cookerDashboard.show();
 					}
 				
 					OnBoardingViewController.this.close();

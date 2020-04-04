@@ -8,6 +8,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.*;
 
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -32,7 +33,7 @@ import models.Restaurant;
 import models.Table;
 
 
-public class ClientDashBoardController implements Initializable{
+public class ClientDashBoardController extends Stage implements Initializable{
 
 	ObservableList<String> list = FXCollections.observableArrayList("4(Table4)","4(Table5)","5","6","7","12","12");
 	public Float payment=0f;

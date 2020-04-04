@@ -155,6 +155,23 @@ public class Restaurant {
 		return reservations;
 	}
 	
+	public ObservableList<OrderedMeal> fetchOrderedMeals() {
+
+		fetchUpdatedData();
+
+		ObservableList<OrderedMeal> orderedMeals = FXCollections.observableArrayList();
+		
+		for (Table table : tables) {
+			if (table.isReserved == true) {
+				for (OrderedMeal meal : table.getOrderedMeals()) {
+					orderedMeals.add(meal);
+				}
+			}
+		}
+		
+		return orderedMeals;
+	}
+	
 	private void fetchUpdatedData() {
 		
 		tables.clear();
@@ -189,23 +206,6 @@ public class Restaurant {
 			}
 
 
-			for (int index = 0; index < tablesList.getLength(); index = index + 1) {
-
-				Node tableNode = tablesList.item(index);
-
-				if (tableNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element tableElement = (Element)tableNode;
-
-					Integer tableNumber = Integer.parseInt(tableElement.getElementsByTagName("number").item(0).getTextContent());
-					Integer seatsCount = Integer.parseInt(tableElement.getElementsByTagName("number_of_seats").item(0).getTextContent());
-					Boolean isSmokingTable = Boolean.parseBoolean(tableElement.getElementsByTagName("smoking").item(0).getTextContent());
-					Boolean isReservedTable = Boolean.parseBoolean(tableElement.getElementsByTagName("isReserved").item(0).getTextContent());
-					tables.add(new Table(tableNumber, seatsCount, isSmokingTable,isReservedTable));
-
-				}
-			}
-
-
 			for (int index = 0; index < dishList.getLength(); index = index + 1) {
 
 				Node dishNode = dishList.item(index);
@@ -220,7 +220,51 @@ public class Restaurant {
 					dishes.add(new Dish(dishName, dishPrice, dishCategory));
 				}
 			}
+			
+			for (int index = 0; index < tablesList.getLength(); index = index + 1) {
 
+				Node tableNode = tablesList.item(index);
+
+				if (tableNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element tableElement = (Element)tableNode;
+
+					Integer tableNumber = Integer.parseInt(tableElement.getElementsByTagName("number").item(0).getTextContent());
+					Integer seatsCount = Integer.parseInt(tableElement.getElementsByTagName("number_of_seats").item(0).getTextContent());
+					Boolean isSmokingTable = Boolean.parseBoolean(tableElement.getElementsByTagName("smoking").item(0).getTextContent());
+					Boolean isReservedTable = Boolean.parseBoolean(tableElement.getElementsByTagName("isReserved").item(0).getTextContent());
+					ArrayList<OrderedMeal> orderedMeals = new ArrayList<OrderedMeal>();
+					
+					NodeList orderedMealsList = document.getElementsByTagName("meal");
+
+					for (int newIndex = 0; newIndex < orderedMealsList.getLength(); newIndex = newIndex + 1) {
+						
+						Node orderedMealNode = orderedMealsList.item(newIndex);
+					
+						if (orderedMealNode.getNodeType() == Node.ELEMENT_NODE) {
+							Element orderedMealElement = (Element)orderedMealNode;
+
+							String orderedMealClientName = orderedMealElement.getElementsByTagName("client").item(0).getTextContent();
+							String orderedMealName = orderedMealElement.getElementsByTagName("name").item(0).getTextContent();
+														
+							Dish referencedDish = new Dish();
+							
+							for (Dish d : dishes) {
+								if (orderedMealName.equals(d.name)) {
+									referencedDish = d;
+								}
+							}
+							
+							orderedMeals.add(new OrderedMeal(orderedMealClientName, referencedDish.getCategory(), referencedDish.name, tableNumber));
+						}
+						
+						
+					}
+					
+					tables.add(new Table(tableNumber, seatsCount, isSmokingTable, isReservedTable, orderedMeals));
+
+				}
+			}
+		
 		}  catch (Exception e) {
 			e.printStackTrace();
 		}

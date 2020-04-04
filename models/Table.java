@@ -1,10 +1,13 @@
 package models;
 
+import java.util.*;
+
 public class Table {
 	public Integer tableNumber;
 	public Integer seatsCount;
 	public Boolean isSmoking;	
 	public Boolean isReserved;
+	private ArrayList<OrderedMeal> orderedMeals;
 
 	public Integer getTableNumber() {
 		return tableNumber;
@@ -38,6 +41,14 @@ public class Table {
 		this.isReserved = isReserved;
 	}
 
+	public ArrayList<OrderedMeal> getOrderedMeals() {
+		return orderedMeals;
+	}
+
+	public void setOrderedMeals(ArrayList<OrderedMeal> orderedMeals) {
+		this.orderedMeals = orderedMeals;
+	}
+
 	public Table(Integer tableNumber, Integer seatsCount, Boolean isSmoking,Boolean isReserved) {
 		super();
 		setTableNumber(tableNumber);
@@ -47,6 +58,16 @@ public class Table {
 		
 	}
 	
+	public Table(Integer tableNumber, Integer seatsCount, Boolean isSmoking, Boolean isReserved,
+			ArrayList<OrderedMeal> orderedMeals) {
+		super();
+		this.tableNumber = tableNumber;
+		this.seatsCount = seatsCount;
+		this.isSmoking = isSmoking;
+		this.isReserved = isReserved;
+		this.orderedMeals = orderedMeals;
+	}
+
 	@Override
 	public String toString() {
 		return "Table [tableNumber=" + tableNumber + ", seatsCount=" + seatsCount + ", isSmoking=" + isSmoking + ",isReserved="+isReserved+ "]";
