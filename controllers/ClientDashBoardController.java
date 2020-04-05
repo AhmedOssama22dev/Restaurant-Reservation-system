@@ -28,9 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import models.DishOrder;
-import models.Restaurant;
-import models.Table;
+import models.*;
 
 
 public class ClientDashBoardController extends Stage implements Initializable{
@@ -319,6 +317,14 @@ public class ClientDashBoardController extends Stage implements Initializable{
 			confirmAlert.show();
 	}
 
+
+    }
+    
+    @FXML
+    public void setClientUser(SystemUser clientUser) {
+    	 
+    	
+     	welcomeLbl.setText("Welcome, " + clientUser.name);
 
     }
 

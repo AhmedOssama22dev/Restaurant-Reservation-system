@@ -120,7 +120,7 @@
                         </AnchorPane>
                         <Separator fx:id="separator" layoutX="369.0" layoutY="15.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="32.0" />
                         <ImageView fx:id="image1" fitHeight="601.0" fitWidth="469.0" layoutX="397.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="appitizerLbl" layoutX="411.0" layoutY="26.0" text="Appitizers" textFill="WHITE" underline="true">
+                        <Label fx:id="appitizerLbl" layoutX="411.0" layoutY="26.0" text="Appetizers" textFill="WHITE" underline="true">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>

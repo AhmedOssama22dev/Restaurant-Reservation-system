@@ -47,6 +47,7 @@ public class OnBoardingViewController extends Stage {
 								clientDashboard = new ClientDashBoardController();
 								clientDashboard.setScene(new Scene(FXMLLoader.load(getClass().getResource("/views/ClientDashBoardView.fxml")), 910, 577));
 								clientDashboard.setTitle("Client Dashboard");
+								clientDashboard.setClientUser(authenticatedUser);
 								clientDashboard.setResizable(false);
 								clientDashboard.setMaximized(false);
 								clientDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {

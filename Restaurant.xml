@@ -76,7 +76,7 @@
 			<number>7</number>
 			<number_of_seats>6</number_of_seats>
 			<smoking>true</smoking>
-			<isReserved>true</isReserved>
+			<isReserved>false</isReserved>
 			<orderedMeals>
 			    <meal>
 			        <client>Brian</client>
