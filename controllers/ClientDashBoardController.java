@@ -494,7 +494,7 @@ public void setIsReserved(Boolean isReserved) {
 }
 OrderedMeal orderedMeal;
 
-	final Table table=new Table(tableNumber, seatsCount, isSmoking, isReserved,orderedMeal);
+	//final Table table=new Table(tableNumber, seatsCount, isSmoking, isReserved, new ArrayList<OrderedMeal>(orderedMeal));
 	final DishOrder dishOrder = new DishOrder();
 	public	ArrayList<Integer> reservedTables= new ArrayList<Integer>();
 	private Integer nSalad,nFries,nSteak,nChicken,nSoup,nPie,nCake=0;

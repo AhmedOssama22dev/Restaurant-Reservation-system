@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jardesc>
+    <jar path="assignment_2_6065_6236/Restaurant.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/assignment_2_6065_6236/Restaurant.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=assignment_2_6065_6236/&lt;{Main.java[Main" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+        <javaElement handleIdentifier="=assignment_2_6065_6236/&lt;"/>
+        <file path="/assignment_2_6065_6236/OnBoardingImage.png"/>
+        <javaElement handleIdentifier="=assignment_2_6065_6236/&lt;views.ClientDashBoardViewSrcFiles"/>
+        <file path="/assignment_2_6065_6236/Restaurant Reservation System.iml"/>
+        <file path="/assignment_2_6065_6236/.classpath"/>
+        <file path="/assignment_2_6065_6236/Restaurant.xml"/>
+        <javaElement handleIdentifier="=assignment_2_6065_6236/&lt;controllers"/>
+        <file path="/assignment_2_6065_6236/.gitignore"/>
+        <javaElement handleIdentifier="=assignment_2_6065_6236/&lt;views"/>
+        <file path="/assignment_2_6065_6236/.project"/>
+        <javaElement handleIdentifier="=assignment_2_6065_6236/&lt;models"/>
+        <file path="/assignment_2_6065_6236/.DS_Store"/>
+    </selectedElements>
+</jardesc>
