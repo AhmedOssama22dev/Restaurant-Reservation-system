@@ -44,42 +44,11 @@ public class ClientDashBoardController extends Stage implements Initializable{
     private URL location;
 
 
-
-@FXML
+ @FXML
     private VBox vBoxMain;
 
     @FXML
     private SplitPane splitPane;
-
-    @FXML
-    private AnchorPane anchorPane1;
-
-    @FXML
-    private Label welcomeLbl;
-
-    @FXML
-    private Font x1;
-
-    @FXML
-    private Button menuBtn;
-
-    @FXML
-    private Tooltip menuToolTip;
-
-    @FXML
-    private Label reservedTblLbl;
-
-    @FXML
-    private Label someReservedLbl;
-
-    @FXML
-    private Label selectedFoodLbl;
-
-    @FXML
-    private Label someFoodLbl;
-
-    @FXML
-    private Button saveBtn;
 
     @FXML
     private ScrollPane scrollPane;
@@ -91,31 +60,10 @@ public class ClientDashBoardController extends Stage implements Initializable{
     private Label planLbl;
 
     @FXML
-    private Color x5;
-
-    @FXML
     private Font x6;
 
     @FXML
-    private Button table3Btn;
-
-    @FXML
-    private Button table4Btn;
-
-    @FXML
-    private VBox vBox2;
-
-
-
-    @FXML
-    private VBox vBox3;
-
-
-    @FXML
     private Label nSesats;
-
-    @FXML
-    private Label chooseTablesLbl;
 
     @FXML
     private Button confirmBtn;
@@ -146,12 +94,30 @@ public class ClientDashBoardController extends Stage implements Initializable{
 
     @FXML
     private Button table7Btn;
+     @FXML
+    private ImageView cigerette;
 
     @FXML
-    private ImageView premiumStar;
+    private ImageView cigerette1;
+
+    @FXML
+    private ImageView cigerette11;
+
+    @FXML
+    private ImageView cigerette111;
+
 
     @FXML
     private ImageView premiumStar2;
+
+    @FXML
+    private Button table3Btn;
+
+    @FXML
+    private Button table4Btn;
+
+    @FXML
+    private ImageView premiumStar21;
 
     @FXML
     private Separator separator;
@@ -160,22 +126,37 @@ public class ClientDashBoardController extends Stage implements Initializable{
     private ImageView image1;
 
     @FXML
-    private ImageView menuBackgrd;
-
-    @FXML
-    private ImageView greekSaladImage;
-
-    @FXML
-    private ImageView friesImage;
-
-    @FXML
     private Label appitizerLbl;
 
     @FXML
     private Label mainCourseLbl;
 
     @FXML
-    private Label dessertLbl;
+    private Label soupPrice;
+
+    @FXML
+    private Label totalPriceLbl;
+
+    @FXML
+    private ChoiceBox<?> seats;
+
+    @FXML
+    private Button saveBtn;
+
+    @FXML
+    private Label totalPrice;
+
+    @FXML
+    private Label LE;
+
+    @FXML
+    private Label welcomeLbl;
+
+    @FXML
+    private Font x1;
+
+    @FXML
+    private AnchorPane scrollMain;
 
     @FXML
     private ImageView steakImage;
@@ -187,22 +168,55 @@ public class ClientDashBoardController extends Stage implements Initializable{
     private ImageView mushroomSoupImage;
 
     @FXML
-    private ImageView applePieImage;
-
-    @FXML
-    private ImageView moltenCakeImage;
-
-    @FXML
-    private Button addGreekSalad;
+    private Button AddSteak;
 
     @FXML
     private Button AddChicken;
 
     @FXML
-    private Button AddSteak;
+    private Button AddSoup;
 
     @FXML
-    private Button AddSoup;
+    private Label steak;
+
+    @FXML
+    private Label steakPrice;
+
+    @FXML
+    private Label grilledChicken;
+
+    @FXML
+    private Label grilledChickenPrice;
+
+    @FXML
+    private Label mushroomSoup;
+
+    @FXML
+    private Label mainCourseLbl1;
+
+    @FXML
+    private ScrollPane scrollDessert;
+
+    @FXML
+    private AnchorPane anchorDessert;
+
+    @FXML
+    private Label applePie;
+
+    @FXML
+    private Label applePiePrice;
+
+    @FXML
+    private Label grilledChicken1;
+
+    @FXML
+    private Label moltenCakePrice;
+
+    @FXML
+    private ImageView applePieImage;
+
+    @FXML
+    private ImageView moltenCakeImage;
 
     @FXML
     private Button AddApplePie;
@@ -211,67 +225,54 @@ public class ClientDashBoardController extends Stage implements Initializable{
     private Button AddMoltenCake;
 
     @FXML
-    private Label greekSaladPrice;
+    private ScrollPane scrollApetizers;
 
     @FXML
-    private Label FriesPrice;
+    private AnchorPane anchorAppitizers;
 
     @FXML
-    private Label steakPrice;
+    private ImageView greekSaladImage;
 
     @FXML
-    private Label grilledChickenPrice;
+    private ImageView friesImage;
 
     @FXML
-    private Label piePrice;
-
-    @FXML
-    private Label moltenPrice;
-
-    @FXML
-    private Label soupPrice;
+    private Button addGreekSalad;
 
     @FXML
     private Button AddFries;
-    @FXML
-    private Label totalPriceLbl;
-    @FXML
-    private Label res1;
 
     @FXML
-    private Label res2;
+    private Label greekSalad;
 
     @FXML
-    private Label res3;
+    private Label greekSaladPrice;
 
     @FXML
-    private Label res4;
+    private Label fries;
 
     @FXML
-    private Label res5;
+    private Label friesPrice;
+    @FXML
+    private Label usernameLbl;
 
     @FXML
     private ChoiceBox<String> seats;
     @FXML
-    private Button paymentBtn;
-
-    @FXML
     void confirmReservation(ActionEvent event) {
-    	
+
 	 if(seats.getValue()=="Table 1 [5 seats]")
 		{
 		    Restaurant.mainRestaurant.setK(0);
 	    	Restaurant.mainRestaurant.xmlModifier("Restaurant.mainRestaurant.getK(),true;
-			table1Btn.setStyle("-fx-background-color: #ae1313");
-			res1.setText("Table1");
+			table1Btn.setStyle("-fx-background-color: #494545");
 			confirmBtn.setDisable(true);
 		}
 	  else	if(seats.getValue()=="Table 2 [12 seats]")
 		{
 			Restaurant.mainRestaurant.setK(1);
     	    Restaurant.mainRestaurant.xmlModifier("Restaurant.mainRestaurant.getK(),true);
-		    table2Btn.setStyle("-fx-background-color: #ae1313");
-		    res1.setText("Table 2");
+		    table2Btn.setStyle("-fx-background-color: #494545");
 			confirmBtn.setDisable(true);
 
 		}
@@ -279,8 +280,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		{
 			    Restaurant.mainRestaurant.setK(2);
 		    	Restaurant.mainRestaurant.xmlModifier("Restaurant.mainRestaurant.getK(),true);
-				table3Btn.setStyle("-fx-background-color: #ae1313");
-				res1.setText("Table 3");
+				table3Btn.setStyle("-fx-background-color: #494545");
 				confirmBtn.setDisable(true);
 
 		}
@@ -288,8 +288,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		{
 			 Restaurant.mainRestaurant.setK(3);
 		    	Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
-		     table4Btn.setStyle("-fx-background-color: #ae1313");
-		     res1.setText("Table 4");
+		     table4Btn.setStyle("-fx-background-color: #494545");
 			 confirmBtn.setDisable(true);
 
 
@@ -299,7 +298,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		{
 			    Restaurant.mainRestaurant.setK(4);
 		    	Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
-				table5Btn.setStyle("-fx-background-color: #ae1313");
+				table5Btn.setStyle("-fx-background-color: #494545");
 				res1.setText("Table 5");
 				confirmBtn.setDisable(true);
 		}
@@ -307,8 +306,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		{
 			    Restaurant.mainRestaurant.setK(5);
 		    	Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
-				table6Btn.setStyle("-fx-background-color: #ae1313");
-				res1.setText("Table 6");
+				table6Btn.setStyle("-fx-background-color: #494545");
 				confirmBtn.setDisable(true);
 
 		}
@@ -317,8 +315,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		{
 			    Restaurant.mainRestaurant.setK(6);
 		    	Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
-				table1Btn.setStyle("-fx-background-color: #ae1313");
-				res1.setText("Table 7");
+				table1Btn.setStyle("-fx-background-color: #494545");
 				confirmBtn.setDisable(true);
 		}
 	  else {
@@ -414,10 +411,6 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		totalPriceLbl.setText(""+payment);
 
 
-    }
-    @FXML
-    void payment(ActionEvent event) {
-    	totalPriceLbl.setText(""+payment);
     }
 
 

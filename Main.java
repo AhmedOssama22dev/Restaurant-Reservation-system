@@ -15,6 +15,6 @@ public class Main extends Application {
 		primaryStage = new OnBoardingViewController(StageStyle.UNDECORATED);
 		primaryStage.show();
 		//showing clientDashBoard
-		
+
     }
 }

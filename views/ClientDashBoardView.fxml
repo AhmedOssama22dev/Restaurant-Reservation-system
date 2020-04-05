@@ -13,54 +13,27 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vBoxMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="704.0" prefWidth="1358.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientDashBoardController">
+<VBox fx:id="vBoxMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="895.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClientDashBoardController">
   <children>
-    <SplitPane fx:id="splitPane" dividerPositions="0.16258351893095768" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+    <SplitPane fx:id="splitPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="898.0" VBox.vgrow="NEVER">
       <items>
-        <AnchorPane fx:id="anchorPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="155.0" style="-fx-background-color: #000000;">
-          <children>
-            <Label fx:id="welcomeLbl" alignment="CENTER" layoutX="-133.0" layoutY="131.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="57.0" prefHeight="94.0" prefWidth="327.0" rotate="-90.0" style="&#10;" text="Welcome to the reservation dashboard" textAlignment="CENTER" textFill="WHITE" wrapText="false">
-              <font>
-                <Font size="18.0" fx:id="x1" />
-              </font>
-            </Label>
-                  <Button id="showMenuBtn" fx:id="menuBtn" layoutX="31.0" layoutY="451.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="93.0" style="-fx-background-color: #1b415a;" text="Menu" textFill="WHITE">
-                     <effect>
-                        <Glow />
-                     </effect>
-                     <tooltip>
-                        <Tooltip fx:id="menuToolTip" text="Show food menu" />
-                     </tooltip>
-                  </Button>
-                  <Label fx:id="reservedTblLbl" layoutX="54.0" layoutY="22.0" text="Reserved tables" />
-                  <Label fx:id="someReservedLbl" layoutX="54.0" layoutY="53.0" text="Some tables" textFill="WHITE" />
-                  <Label fx:id="selectedFoodLbl" layoutX="50.0" layoutY="303.0" text="Selected food" />
-                  <Label fx:id="someFoodLbl" layoutX="54.0" layoutY="334.0" text="Some food" textFill="WHITE" />
-                  <Button fx:id="saveBtn" layoutX="31.0" layoutY="543.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="93.0" style="-fx-background-color: #FCD12A;" text="Save">
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
-                  <Label fx:id="res1" layoutX="64.0" layoutY="88.0" />
-          </children>
-        </AnchorPane>
-        <ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1203.0">
+        <ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="577.0" prefWidth="910.0">
           <content>
-            <AnchorPane id="Content" fx:id="anchorPane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1206.0" style="-fx-background-color: #000000;">
+            <AnchorPane id="Content" fx:id="anchorPane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="911.0" style="-fx-background-color: #000000;">
               <children>
-                <Label fx:id="planLbl" alignment="CENTER" layoutX="207.0" layoutY="14.0" style="&#10;" text="Restaurant Plan" textAlignment="CENTER" wrapText="false">
-                           <textFill>
-                              <Color blue="0.624" green="0.624" red="0.624" fx:id="x5" />
-                           </textFill>
+                <Label fx:id="planLbl" alignment="CENTER" layoutX="24.0" layoutY="204.0" style="&#10;" text="Restaurant Plan" textAlignment="CENTER" textFill="#6f5e5e" wrapText="false">
                            <font>
-                              <Font size="18.0" fx:id="x6" />
+                              <Font size="15.0" fx:id="x6" />
                            </font>
                         </Label>
-                        <Label fx:id="nSesats" layoutX="97.0" layoutY="321.0" text="Choose number of seats" textFill="#1074c4" />
-                        <Button id="confirmReservationBtn" fx:id="confirmBtn" layoutX="91.0" layoutY="477.0" mnemonicParsing="false" onAction="#confirmReservation" prefHeight="73.0" prefWidth="107.0" style="-fx-background-color: #015970;" text="Confirm" textFill="WHITE">
+                        <Label fx:id="nSesats" layoutX="22.0" layoutY="138.0" text="Choose a table:" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Button id="confirmReservationBtn" fx:id="confirmBtn" layoutX="187.0" layoutY="164.0" mnemonicParsing="false" onAction="#confirmReservation" prefHeight="31.0" prefWidth="83.0" style="-fx-background-color: #015970;" text="Confirm" textFill="WHITE">
                            <effect>
                               <Glow />
                            </effect>
@@ -68,137 +41,273 @@
                               <Tooltip fx:id="confirmToolTip" text="Confirm current reservations" />
                            </tooltip>
                         </Button>
-                        <Button id="cancelReservedBtn" fx:id="deleteBtn" layoutX="216.0" layoutY="477.0" mnemonicParsing="false" onAction="#deleteReservation" prefHeight="73.0" prefWidth="107.0" style="-fx-background-color: #704c0c;" text="Delete" textFill="#f2f2f2">
-                           <effect>
-                              <Glow />
-                           </effect>
+                        <Button id="cancelReservedBtn" fx:id="deleteBtn" layoutX="281.0" layoutY="164.0" mnemonicParsing="false" onAction="#deleteReservation" prefHeight="31.0" prefWidth="67.0" style="-fx-background-color: #015970;" text="Delete" textFill="WHITE">
                            <tooltip>
                               <Tooltip fx:id="deleteToolTip" text="Cancel reserved tables" />
                            </tooltip>
+                           <effect>
+                              <Glow />
+                           </effect>
                         </Button>
-                        <AnchorPane fx:id="anchorPane" layoutX="54.0" layoutY="42.0" prefHeight="282.0" prefWidth="480.0">
+                        <AnchorPane fx:id="anchorPane" layoutX="23.0" layoutY="232.0" prefHeight="282.0" prefWidth="329.0" style="-fx-background-color: #ffffff; -fx-border-color: #FCD12A;">
                            <children>
-                              <Button fx:id="table5Btn" layoutX="272.0" layoutY="14.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Table5">
+                              <Button fx:id="table5Btn" layoutX="116.0" layoutY="189.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="Table5" textFill="WHITE">
                                  <effect>
                                     <Glow />
                                  </effect>
                               </Button>
-                              <Button fx:id="table1Btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="205.0" style="-fx-background-color: #ffffff;" text="Table1">
+                              <Button fx:id="table1Btn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="74.0" style="-fx-background-color: #000000;" text="Table1" textFill="WHITE">
                                  <effect>
                                     <Glow />
                                  </effect>
                               </Button>
-                              <Button fx:id="table2Btn" layoutX="15.0" layoutY="102.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="204.0" style="-fx-background-color: #ffffff;" text="Table2">
+                              <Button fx:id="table2Btn" layoutX="116.0" layoutY="17.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="172.0" style="-fx-background-color: #000000;" text="Table2" textFill="WHITE">
                                  <effect>
                                     <Glow />
                                  </effect>
                               </Button>
-                              <Button fx:id="table6Btn" layoutX="273.0" layoutY="102.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Table6">
+                              <Button fx:id="table6Btn" layoutX="205.0" layoutY="101.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="Table6" textFill="WHITE">
                                  <effect>
                                     <Glow />
                                  </effect>
                               </Button>
-                              <Button fx:id="table7Btn" layoutX="273.0" layoutY="182.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Table7">
+                              <Button fx:id="table7Btn" layoutX="205.0" layoutY="189.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="Table7" textFill="WHITE">
                                  <effect>
                                     <Glow />
                                  </effect>
                               </Button>
-                              <ImageView fx:id="premiumStar" layoutX="22.0" layoutY="22.0">
+                              <ImageView fx:id="premiumStar2" layoutX="135.0" layoutY="22.0">
                                  <image>
                                     <Image url="@ClientDashBoardViewSrcFiles/Premium.png" />
                                  </image>
                               </ImageView>
-                              <ImageView fx:id="premiumStar2" layoutX="22.0" layoutY="116.0">
+                              <Button fx:id="table3Btn" layoutX="13.0" layoutY="102.0" mnemonicParsing="false" prefHeight="165.0" prefWidth="77.0" style="-fx-background-color: #000000;" text="Table3" textFill="WHITE">
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                              </Button>
+                              <Button fx:id="table4Btn" layoutX="116.0" layoutY="101.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="83.0" style="-fx-background-color: #000000;" text="Table4" textFill="WHITE">
+                                 <effect>
+                                    <Glow />
+                                 </effect>
+                              </Button>
+                              <ImageView fx:id="premiumStar21" layoutX="22.0" layoutY="114.0">
                                  <image>
                                     <Image url="@ClientDashBoardViewSrcFiles/Premium.png" />
                                  </image>
                               </ImageView>
-                              <Button fx:id="table3Btn" layoutX="22.0" layoutY="182.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" text="Table3">
-                                 <effect>
-                                    <Glow />
-                                 </effect>
-                              </Button>
-                              <Button fx:id="table4Btn" layoutX="143.0" layoutY="182.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="107.0" style="-fx-background-color: #ffffff;" text="Table4">
-                                 <effect>
-                                    <Glow />
-                                 </effect>
-                              </Button>
+                              <ImageView fx:id="cigerette" fitHeight="35.0" fitWidth="44.0" layoutX="38.0" layoutY="97.0">
+                                 <image>
+                                    <Image url="@ClientDashBoardViewSrcFiles/smoking.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="cigerette1" fitHeight="35.0" fitWidth="44.0" layoutX="121.0" layoutY="172.0">
+                                 <image>
+                                    <Image url="@ClientDashBoardViewSrcFiles/smoking.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="cigerette11" fitHeight="35.0" fitWidth="44.0" layoutX="205.0" layoutY="85.0">
+                                 <image>
+                                    <Image url="@ClientDashBoardViewSrcFiles/smoking.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="cigerette111" fitHeight="35.0" fitWidth="44.0" layoutX="211.0" layoutY="172.0">
+                                 <image>
+                                    <Image url="@ClientDashBoardViewSrcFiles/smoking.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
-                        <Separator fx:id="separator" layoutX="587.0" layoutY="13.0" orientation="VERTICAL" prefHeight="671.0" prefWidth="32.0" />
-                        <ImageView fx:id="image1" fitHeight="633.0" fitWidth="576.0" layoutX="605.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="menuBackgrd" fitHeight="595.0" fitWidth="533.0" layoutX="619.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/blackBoardMenu.jpg" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="greekSaladImage" fitHeight="123.0" fitWidth="140.0" layoutX="665.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/greek-salad-png-2.png" />
-                           </image></ImageView>
-                        <ImageView fx:id="friesImage" fitHeight="123.0" fitWidth="140.0" layoutX="815.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/fries.jpg" />
-                           </image></ImageView>
-                        <Label fx:id="appitizerLbl" layoutX="695.0" layoutY="138.0" text="Appitizers" textFill="WHITE">
+                        <Separator fx:id="separator" layoutX="369.0" layoutY="15.0" orientation="VERTICAL" prefHeight="500.0" prefWidth="32.0" />
+                        <ImageView fx:id="image1" fitHeight="601.0" fitWidth="469.0" layoutX="397.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="appitizerLbl" layoutX="411.0" layoutY="26.0" text="Appitizers" textFill="WHITE" underline="true">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="mainCourseLbl" layoutX="686.0" layoutY="282.0" text="Main Course" textFill="WHITE">
+                        <Label fx:id="mainCourseLbl" layoutX="413.0" layoutY="212.0" text="Main Course" textFill="WHITE" underline="true">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Bold Italic" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="dessertLbl" layoutX="705.0" layoutY="449.0" text="Dessert" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <ImageView fx:id="steakImage" fitHeight="123.0" fitWidth="140.0" layoutX="665.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/steak.jpg" />
-                           </image></ImageView>
-                        <ImageView fx:id="grilledChickenImage" fitHeight="123.0" fitWidth="140.0" layoutX="815.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/grilledChicken.png" />
-                           </image></ImageView>
-                        <ImageView fx:id="mushroomSoupImage" fitHeight="123.0" fitWidth="140.0" layoutX="955.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/mushroomSoup.jpg" />
-                           </image></ImageView>
-                        <ImageView fx:id="applePieImage" fitHeight="81.0" fitWidth="114.0" layoutX="737.0" layoutY="473.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/applePie.png" />
-                           </image></ImageView>
-                        <ImageView fx:id="moltenCakeImage" fitHeight="83.0" fitWidth="109.0" layoutX="839.0" layoutY="476.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@ClientDashBoardViewSrcFiles/molten2.png" />
-                           </image></ImageView>
-                        <Button fx:id="addGreekSalad" layoutX="675.0" layoutY="172.0" mnemonicParsing="false" onAction="#orderSalad" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #eab700;" text="+" />
-                        <Button fx:id="AddChicken" layoutX="815.0" layoutY="317.0" mnemonicParsing="false" onAction="#orderChicken" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #eab700;" text="+" />
-                        <Button fx:id="AddSteak" layoutX="661.0" layoutY="325.0" mnemonicParsing="false" onAction="#orderSteak" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #eab700;" text="+" />
-                        <Button fx:id="AddSoup" layoutX="955.0" layoutY="325.0" mnemonicParsing="false" onAction="#orderSoup" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #eab700;" text="+" />
-                        <Button fx:id="AddApplePie" layoutX="735.0" layoutY="483.0" mnemonicParsing="false" onAction="#orderPie" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #eab700;" text="+" />
-                        <Button fx:id="AddMoltenCake" layoutX="839.0" layoutY="474.0" mnemonicParsing="false" onAction="#orderCake" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #eab700;" text="+" />
-                        <Label fx:id="greekSaladPrice" layoutX="681.0" layoutY="262.0" text="Price 35" textFill="#d31b1b" />
-                        <Label fx:id="FriesPrice" layoutX="818.0" layoutY="262.0" text="Price 30" textFill="#d31b1b" />
-                        <Label fx:id="steakPrice" layoutX="674.0" layoutY="420.0" text="Price 80" textFill="#d31b1b" />
-                        <Label fx:id="grilledChickenPrice" layoutX="839.0" layoutY="420.0" text="Price 75" textFill="#d31b1b" />
-                        <Label fx:id="piePrice" layoutX="742.0" layoutY="556.0" text="Price 50" textFill="#d31b1b" />
-                        <Label fx:id="moltenPrice" layoutX="864.0" layoutY="556.0" text="Price 60" textFill="#d31b1b" />
-                        <Label fx:id="soupPrice" layoutX="962.0" layoutY="429.0" text="Price 60" textFill="#d31b1b" />
-                        <Button fx:id="AddFries" layoutX="804.0" layoutY="164.0" mnemonicParsing="false" onAction="#orderFries" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #eab700;" text="+" />
-                        <Label fx:id="totalPriceLbl" layoutX="893.0" layoutY="624.0" text="0.0" textFill="#c60000">
+                        <Label fx:id="soupPrice" layoutX="900.0" layoutY="414.0" text="Price 60" textFill="#d31b1b" />
+                        <Label fx:id="totalPriceLbl" layoutX="831.0" layoutY="431.0" text="0.0" textFill="#f7ff13">
                            <font>
                               <Font size="20.0" />
-                           </font></Label>
-                        <ChoiceBox fx:id="seats" layoutX="87.0" layoutY="354.0" prefWidth="150.0" />
-                        <Button fx:id="paymentBtn" layoutX="619.0" layoutY="623.0" mnemonicParsing="false" onAction="#payment" prefHeight="25.0" prefWidth="247.0" style="-fx-background-color: #ffffff;" text="Total price after adding the Tax =">
-                           <font>
-                              <Font size="15.0" />
                            </font>
+                        </Label>
+                        <ChoiceBox fx:id="seats" layoutX="22.0" layoutY="167.0" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #ffffff;" />
+                        <Button fx:id="saveBtn" layoutX="764.0" layoutY="482.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="93.0" style="-fx-background-color: #015970;" text="Proceed" textFill="WHITE">
+                           <effect>
+                              <InnerShadow />
+                           </effect>
                         </Button>
+                        <Label fx:id="totalPrice" layoutX="734.0" layoutY="432.0" text="Total price:" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="LE" layoutX="866.0" layoutY="433.0" text="LE" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                  <Label fx:id="welcomeLbl" alignment="CENTER" layoutX="451.0" layoutY="738.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="57.0" prefHeight="41.0" prefWidth="336.0" style="&#10;" text="Welcome to the reservation dashboard" textAlignment="CENTER" textFill="WHITE" wrapText="false">
+                    <font>
+                      <Font size="18.0" fx:id="x1" />
+                    </font>
+                  </Label>
+                        <Label fx:id="welcomeLbl" layoutX="22.0" layoutY="26.0" text="Welcome," textFill="WHITE">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane layoutX="408.0" layoutY="239.0" prefHeight="151.0" prefWidth="305.0">
+                           <content>
+                              <AnchorPane fx:id="scrollMain" prefHeight="170.0" prefWidth="376.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <ImageView fx:id="steakImage" fitHeight="68.0" fitWidth="151.0" layoutX="7.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ClientDashBoardViewSrcFiles/steak.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="grilledChickenImage" fitHeight="82.0" fitWidth="110.0" layoutX="129.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ClientDashBoardViewSrcFiles/grilledChicken.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="mushroomSoupImage" fitHeight="82.0" fitWidth="120.0" layoutX="256.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ClientDashBoardViewSrcFiles/mushroomSoup.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="AddSteak" layoutX="7.0" layoutY="104.0" mnemonicParsing="false" onAction="#orderSteak" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #015970;" text="+" textFill="WHITE" />
+                                    <Button fx:id="AddChicken" layoutX="115.0" layoutY="104.0" mnemonicParsing="false" onAction="#orderChicken" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #015970;" text="+" textFill="WHITE" />
+                                    <Button fx:id="AddSoup" layoutX="252.0" layoutY="104.0" mnemonicParsing="false" onAction="#orderSoup" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #015970;" text="+" textFill="WHITE" />
+                                    <Label fx:id="steak" layoutX="38.0" layoutY="82.0" prefHeight="13.0" prefWidth="105.0" text="Steak">
+                                       <font>
+                                          <Font name="Plantagenet Cherokee" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="steakPrice" layoutX="53.0" layoutY="106.0" text="80 LE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="grilledChicken" layoutX="129.0" layoutY="82.0" prefHeight="25.0" prefWidth="127.0" text="Grilled chicken">
+                                       <font>
+                                          <Font name="Plantagenet Cherokee" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="grilledChickenPrice" layoutX="171.0" layoutY="106.0" text="75 LE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="mushroomSoup" layoutX="266.0" layoutY="82.0" prefHeight="13.0" prefWidth="105.0" text="Mushroom soup">
+                                       <font>
+                                          <Font name="Plantagenet Cherokee" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="soupPrice" layoutX="284.0" layoutY="106.0" text="60 LE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <Label fx:id="mainCourseLbl1" layoutX="408.0" layoutY="401.0" text="Dessert" textFill="WHITE" underline="true">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane fx:id="scrollDessert" layoutX="401.0" layoutY="438.0" prefHeight="123.0" prefWidth="303.0">
+                           <content>
+                              <AnchorPane fx:id="anchorDessert" prefHeight="133.0" prefWidth="286.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <Label fx:id="applePie" layoutX="28.0" layoutY="59.0" prefHeight="13.0" prefWidth="105.0" text="Apple Pie">
+                                       <font>
+                                          <Font name="Plantagenet Cherokee" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="applePiePrice" layoutX="42.0" layoutY="86.0" text="50 LE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="grilledChicken1" layoutX="161.0" layoutY="59.0" prefHeight="25.0" prefWidth="127.0" text="Molten cake">
+                                       <font>
+                                          <Font name="Plantagenet Cherokee" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="moltenCakePrice" layoutX="186.0" layoutY="86.0" text="60 LE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fx:id="applePieImage" fitHeight="81.0" fitWidth="114.0" layoutX="5.0" layoutY="-10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ClientDashBoardViewSrcFiles/applePie.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="moltenCakeImage" fitHeight="59.0" fitWidth="140.0" layoutX="146.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ClientDashBoardViewSrcFiles/molten2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="AddApplePie" layoutY="84.0" mnemonicParsing="false" onAction="#orderPie" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #015970;" text="+" textFill="WHITE" />
+                                    <Button fx:id="AddMoltenCake" layoutX="147.0" layoutY="84.0" mnemonicParsing="false" onAction="#orderCake" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #015970;" text="+" textFill="WHITE" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane fx:id="scrollApetizers" layoutX="402.0" layoutY="53.0" prefHeight="152.0" prefWidth="302.0">
+                           <content>
+                              <AnchorPane fx:id="anchorAppitizers" prefHeight="150.0" prefWidth="305.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <ImageView fx:id="greekSaladImage" fitHeight="84.0" fitWidth="127.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ClientDashBoardViewSrcFiles/greek-salad-png-2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="friesImage" fitHeight="87.0" fitWidth="123.0" layoutX="159.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ClientDashBoardViewSrcFiles/fries.jpg" />
+                                       </image>
+                                    </ImageView>
+                                    <Button fx:id="addGreekSalad" layoutX="14.0" layoutY="113.0" mnemonicParsing="false" onAction="#orderSalad" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #015970;" text="+" textFill="WHITE" />
+                                    <Button fx:id="AddFries" layoutX="159.0" layoutY="112.0" mnemonicParsing="false" onAction="#orderFries" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #015970;" text="+" textFill="WHITE" />
+                                    <Label fx:id="greekSalad" layoutX="21.0" layoutY="84.0" prefHeight="13.0" prefWidth="105.0" text="Greek salad">
+                                       <font>
+                                          <Font name="Plantagenet Cherokee" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="greekSaladPrice" layoutX="55.0" layoutY="103.0" text="35 LE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="fries" layoutX="173.0" layoutY="84.0" prefHeight="13.0" prefWidth="105.0" text="French fries">
+                                       <font>
+                                          <Font name="Plantagenet Cherokee" size="18.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="friesPrice" layoutX="202.0" layoutY="103.0" text="30 LE">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                        <Label fx:id="usernameLbl" layoutX="187.0" layoutY="26.0" text="username" textFill="WHITE">
+                           <font>
+                              <Font size="35.0" />
+                           </font>
+                        </Label>
               </children>
             </AnchorPane>
           </content>

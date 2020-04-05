@@ -18,7 +18,7 @@ public class OnBoardingViewController extends Stage {
 	public ClientDashBoardController clientDashboard;
 	public WaiterDashboardViewController waiterDashboard;
 	public CookerDashboardViewController cookerDashboard;
-	
+
 
 	public OnBoardingViewController(StageStyle style) {
 		super(style);
@@ -41,10 +41,10 @@ public class OnBoardingViewController extends Stage {
 					if (authenticatedUser.role.equals(SystemUserRole.CLIENT)) {
 
 						try {
-							
+
 							if (clientDashboard == null) {
 								clientDashboard = new ClientDashBoardController();
-								clientDashboard.setScene(new Scene(FXMLLoader.load(getClass().getResource("/views/ClientDashBoardView.fxml")), 1351, 705));
+								clientDashboard.setScene(new Scene(FXMLLoader.load(getClass().getResource("/views/ClientDashBoardView.fxml")), 910, 577));
 								clientDashboard.setTitle("Client Dashboard");
 								clientDashboard.setResizable(false);
 								clientDashboard.setMaximized(false);
@@ -55,17 +55,17 @@ public class OnBoardingViewController extends Stage {
 	                                 }
 								});
 							}
-							
+
 							clientDashboard.show();
-							
+
 						} catch (Exception e1) {
 							e1.printStackTrace();
 						}
-						
+
 					} else if (authenticatedUser.role.equals(SystemUserRole.MANAGER)) {
-						
+
 					} else if (authenticatedUser.role.equals(SystemUserRole.WAITER)) {
-						
+
 						if (waiterDashboard == null) {
 							waiterDashboard = new WaiterDashboardViewController(StageStyle.DECORATED);
 							waiterDashboard.setResizable(false);
@@ -79,11 +79,11 @@ public class OnBoardingViewController extends Stage {
 	                                 }
 	                        });
 						}
-				
+
 						waiterDashboard.show();
-						
+
 					} else {
-						
+
 						if (cookerDashboard == null) {
 							cookerDashboard = new CookerDashboardViewController(StageStyle.DECORATED);
 							cookerDashboard.setResizable(false);
@@ -97,20 +97,20 @@ public class OnBoardingViewController extends Stage {
 	                                 }
 	                        });
 						}
-				
+
 						cookerDashboard.show();
 					}
-				
+
 					OnBoardingViewController.this.close();
-					
+
 				} else {
 					Restaurant.showAlert(AlertType.ERROR, "Authentication Failed", "Incorrect username or password.", null);
 				}
 			}
 		});
-		
+
 		onBoardingView.closeButton.setOnAction(new EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent e) {
 				OnBoardingViewController.this.close();
