@@ -570,7 +570,7 @@ OrderedMeal orderedMeal;
 
 	public void initialize(URL location, ResourceBundle resources) {
     	seats.setItems(list);
-
+        addingMeals(false);
 
 			}
 
