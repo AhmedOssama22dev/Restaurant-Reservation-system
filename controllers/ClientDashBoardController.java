@@ -12,6 +12,9 @@ import javafx.stage.*;
 
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import java.net.URL;
 
 import javafx.scene.control.Alert;
@@ -32,6 +35,7 @@ import models.*;
 
 
 public class ClientDashBoardController extends Stage implements Initializable{
+
 
 	ObservableList<String> list = FXCollections.observableArrayList("Table 1 [5 seats]","Table 2 [12 seats]","Table 3 [12 seats]","Table 4 [4 seats]","Table 5 [4 seats]","Table 6 [7 seats]","Table 7 [6 seats]");
 	public Float payment=0f;
@@ -255,7 +259,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
     private ChoiceBox<String> seats;
     @FXML
     void confirmReservation(ActionEvent event) {
-
+    	addingMeals(true);
 	 if(seats.getValue()=="Table 1 [5 seats]")
 		{
 		    Restaurant.mainRestaurant.setK(0);
@@ -315,14 +319,15 @@ public class ClientDashBoardController extends Stage implements Initializable{
 	  else {
 		  confirmAlert.setContentText("No tables checked.");
 			confirmAlert.show();
+			addingMeals(false);
 	}
 
 
     }
-    
+
     private SystemUser clientUser;
-    
-  
+
+
 
     public SystemUser getClientUser() {
 		return clientUser;
@@ -351,6 +356,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		table6Btn.setStyle("-fx-background-color: #000000");
 		table7Btn.setStyle("-fx-background-color: #000000");
 		confirmBtn.setDisable(false);
+		addingMeals(false);
 
     }
 
@@ -427,6 +433,19 @@ public class ClientDashBoardController extends Stage implements Initializable{
 
     }
 
+    public void addingMeals(Boolean tableConfimed) {
+    	if(tableConfimed==false){
+    	addGreekSalad.setDisable(true);AddFries.setDisable(true);
+    	AddSteak.setDisable(true);AddChicken.setDisable(true);AddSoup.setDisable(true);
+    	AddApplePie.setDisable(true);AddMoltenCake.setDisable(true);
+    	}
+    	else
+    	{
+    		addGreekSalad.setDisable(false);AddFries.setDisable(false);
+        	AddSteak.setDisable(false);AddChicken.setDisable(false);AddSoup.setDisable(false);
+        	AddApplePie.setDisable(false);AddMoltenCake.setDisable(false);
+    	}
+	}
 
 	Alert confirmAlert = new Alert(AlertType.ERROR);
 	Alert deleteAlert = new Alert(AlertType.CONFIRMATION);
@@ -473,9 +492,9 @@ public Boolean getIsReserved() {
 public void setIsReserved(Boolean isReserved) {
 	this.isReserved = isReserved;
 }
+OrderedMeal orderedMeal;
 
-
-	final Table table=new Table(tableNumber, seatsCount, isSmoking, isReserved);
+	final Table table=new Table(tableNumber, seatsCount, isSmoking, isReserved,orderedMeal);
 	final DishOrder dishOrder = new DishOrder();
 	public	ArrayList<Integer> reservedTables= new ArrayList<Integer>();
 	private Integer nSalad,nFries,nSteak,nChicken,nSoup,nPie,nCake=0;
@@ -552,6 +571,11 @@ public void setIsReserved(Boolean isReserved) {
 	final Float mainTax=0.15f;
 	final Float dessertTax=0.20f;
 	private Float totalPayment;
+	public SystemUser clientSystemUser;
+	public void setClientSystemUser( SystemUser clientSystemUser)
+	{
+		this.clientSystemUser=clientSystemUser;
+	}
 	public Float getTotalPrice() {
 		return totalPayment;
 	}
@@ -567,7 +591,7 @@ public void setIsReserved(Boolean isReserved) {
 
 	public void initialize(URL location, ResourceBundle resources) {
     	seats.setItems(list);
-    	
+			addingMeals(false);
 	}
 
 }
