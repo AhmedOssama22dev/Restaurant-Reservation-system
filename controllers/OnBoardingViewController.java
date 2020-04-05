@@ -47,7 +47,6 @@ public class OnBoardingViewController extends Stage {
 								clientDashboard = new ClientDashBoardController();
 								clientDashboard.setScene(new Scene(FXMLLoader.load(getClass().getResource("/views/ClientDashBoardView.fxml")), 910, 577));
 								clientDashboard.setTitle("Client Dashboard");
-								clientDashboard.setClientUser(authenticatedUser);
 								clientDashboard.setResizable(false);
 								clientDashboard.setMaximized(false);
 								clientDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
@@ -58,6 +57,7 @@ public class OnBoardingViewController extends Stage {
 								});
 							}
 
+							clientDashboard.setClientUser(authenticatedUser);
 							clientDashboard.show();
 
 						} catch (Exception e1) {
@@ -70,11 +70,6 @@ public class OnBoardingViewController extends Stage {
 							managerDashboard = new ManagerDashboardViewController(StageStyle.DECORATED);
 							managerDashboard.setResizable(false);
 							managerDashboard.setMaximized(false);
-							managerDashboard.setOrderedMeals(Restaurant.mainRestaurant.fetchOrderedMeals());
-							managerDashboard.setSystemUsers(Restaurant.mainRestaurant.fetchSystemUsers());
-							managerDashboard.setReservations(Restaurant.mainRestaurant.fetchReservations());
-							managerDashboard.setCheckouts(Restaurant.mainRestaurant.fetchCheckouts());
-							managerDashboard.setManagerUser(authenticatedUser);
 							managerDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
 	                                 public void handle(WindowEvent we) {
 	                                	   OnBoardingViewController.this.show();
@@ -83,6 +78,12 @@ public class OnBoardingViewController extends Stage {
 	                        });
 						}
 
+						managerDashboard.setManagerUser(authenticatedUser);
+						managerDashboard.setOrderedMeals(Restaurant.mainRestaurant.fetchOrderedMeals());
+						managerDashboard.setSystemUsers(Restaurant.mainRestaurant.fetchSystemUsers());
+						managerDashboard.setReservations(Restaurant.mainRestaurant.fetchReservations());
+						managerDashboard.setCheckouts(Restaurant.mainRestaurant.fetchCheckouts());
+						
 						managerDashboard.show();
 						
 					} else if (authenticatedUser.role.equals(SystemUserRole.WAITER)) {
@@ -91,8 +92,6 @@ public class OnBoardingViewController extends Stage {
 							waiterDashboard = new WaiterDashboardViewController(StageStyle.DECORATED);
 							waiterDashboard.setResizable(false);
 							waiterDashboard.setMaximized(false);
-							waiterDashboard.setReservations(Restaurant.mainRestaurant.fetchReservations());
-							waiterDashboard.setWaiterUser(authenticatedUser);
 							waiterDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
 	                                 public void handle(WindowEvent we) {
 	                                	   OnBoardingViewController.this.show();
@@ -100,7 +99,9 @@ public class OnBoardingViewController extends Stage {
 	                                 }
 	                        });
 						}
-
+						
+						waiterDashboard.setWaiterUser(authenticatedUser);
+						waiterDashboard.setReservations(Restaurant.mainRestaurant.fetchReservations());
 						waiterDashboard.show();
 
 					} else {
@@ -109,8 +110,6 @@ public class OnBoardingViewController extends Stage {
 							cookerDashboard = new CookerDashboardViewController(StageStyle.DECORATED);
 							cookerDashboard.setResizable(false);
 							cookerDashboard.setMaximized(false);
-							cookerDashboard.setOrderedMeals(Restaurant.mainRestaurant.fetchOrderedMeals());
-							cookerDashboard.setCookerUser(authenticatedUser);
 							cookerDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
 	                                 public void handle(WindowEvent we) {
 	                                	   OnBoardingViewController.this.show();
@@ -119,11 +118,15 @@ public class OnBoardingViewController extends Stage {
 	                        });
 						}
 
+						cookerDashboard.setOrderedMeals(Restaurant.mainRestaurant.fetchOrderedMeals());
+						cookerDashboard.setCookerUser(authenticatedUser);
 						cookerDashboard.show();
 					}
 
 					OnBoardingViewController.this.close();
 
+					Restaurant.mainRestaurant.currentLoggedInUser = authenticatedUser;
+					
 				} else {
 					Restaurant.showAlert(AlertType.ERROR, "Authentication Failed", "Incorrect username or password.", null);
 				}

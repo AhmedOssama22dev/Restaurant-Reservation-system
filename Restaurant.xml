@@ -39,38 +39,50 @@
 		<table>
 			<number_of_seats>5</number_of_seats>
 			<smoking>false</smoking>
-			<isReserved>false</isReserved>
+			<isReserved>true</isReserved>
 			<number>1</number>
+			<orderedMeals>
+			<meal><client>Brian Johnes</client><name>Mushroom Soup</name></meal><meal><client>Brian Johnes</client><name>Grilled Chicken</name></meal></orderedMeals>
 		</table>
 		<table>
 			<number>2</number>
 			<number_of_seats>12</number_of_seats>
 			<smoking>false</smoking>
 			<isReserved>false</isReserved>
+			<orderedMeals>
+			</orderedMeals>
 		</table>
 		<table>
 			<number>3</number>
 			<number_of_seats>12</number_of_seats>
 			<smoking>true</smoking>
-			<isReserved>false</isReserved>
+			<isReserved>true</isReserved>
+			<orderedMeals>
+			<meal><client>John Doe</client><name>Fried Potatos</name></meal></orderedMeals>
 		</table>
 		<table>
 			<number>4</number>
 			<number_of_seats>4</number_of_seats>
 			<smoking>false</smoking>
 			<isReserved>false</isReserved>
+			<orderedMeals>
+			</orderedMeals>
 		</table>
 		<table>
 			<number>5</number>
 			<number_of_seats>4</number_of_seats>
 			<smoking>true</smoking>
 			<isReserved>false</isReserved>
+			<orderedMeals>
+			</orderedMeals>
 		</table>
 		<table>
 			<number>6</number>
 			<number_of_seats>7</number_of_seats>
 			<smoking>true</smoking>
 			<isReserved>false</isReserved>
+			<orderedMeals>
+			</orderedMeals>
 		</table>
 		<table>
 			<number>7</number>
@@ -78,10 +90,6 @@
 			<smoking>true</smoking>
 			<isReserved>false</isReserved>
 			<orderedMeals>
-			    <meal>
-			        <client>Brian</client>
-			        <name>Grilled Chicken</name>
-		        </meal>
 			</orderedMeals>
 		</table>
 	</tables>

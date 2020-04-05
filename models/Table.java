@@ -68,9 +68,12 @@ public class Table {
 		this.orderedMeals = orderedMeals;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Table [tableNumber=" + tableNumber + ", seatsCount=" + seatsCount + ", isSmoking=" + isSmoking + ",isReserved="+isReserved+ "]";
+		return "Table [tableNumber=" + tableNumber + ", seatsCount=" + seatsCount + ", isSmoking=" + isSmoking
+				+ ", isReserved=" + isReserved + ", orderedMeals=" + orderedMeals + "]";
 	}
 
 	public boolean isSmoking(boolean isSmoking) {

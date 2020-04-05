@@ -17,6 +17,12 @@ public class OrderedMeal {
 		this.price = price;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderedMeal [clientName=" + clientName + ", dishCategory=" + dishCategory + ", dishName=" + dishName
+				+ ", tableNumber=" + tableNumber + ", price=" + price + "]";
+	}
+
 	public Integer getPrice() {
 		return price;
 	}

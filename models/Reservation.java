@@ -17,6 +17,12 @@ public class Reservation {
 		this.clientName = clientName;
 	}
 
+	@Override
+	public String toString() {
+		return "Reservation [clientName=" + clientName + ", tableNumber=" + tableNumber + ", seatsCount=" + seatsCount
+				+ ", isSmokingTable=" + isSmokingTable + "]";
+	}
+
 	public Integer getTableNumber() {
 		return tableNumber;
 	}

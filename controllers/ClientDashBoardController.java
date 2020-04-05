@@ -320,15 +320,19 @@ public class ClientDashBoardController extends Stage implements Initializable{
 
     }
     
-    @FXML
-    public void setClientUser(SystemUser clientUser) {
-    	 
-    	
-     	welcomeLbl.setText("Welcome, " + clientUser.name);
+    private SystemUser clientUser;
+    
+  
 
-    }
+    public SystemUser getClientUser() {
+		return clientUser;
+	}
 
-    @FXML
+	public void setClientUser(SystemUser clientUser) {
+		this.clientUser = clientUser;
+	}
+
+	@FXML
     void deleteReservation(ActionEvent event) {
 
 		deleteAlert.setContentText("Reservations cancelled");
@@ -357,6 +361,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		payment+=getTotalPrice();
 		totalPriceLbl.setText(""+payment);
 
+		Restaurant.mainRestaurant.saveMeal(Restaurant.mainRestaurant.currentLoggedInUser.name, "Molten Cake");
 
     }
 
@@ -367,6 +372,8 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		totalPriceLbl.setText(""+getTotalPrice());
 		payment+=getTotalPrice();
 		totalPriceLbl.setText(""+payment);
+		Restaurant.mainRestaurant.saveMeal(Restaurant.mainRestaurant.currentLoggedInUser.name, "Grilled Chicken");
+
     }
 
     @FXML
@@ -375,6 +382,8 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		setTotalPrice(+dishOrder.setPriceAfterTax(2, getnFries(), appetizerTax));
 		payment+=getTotalPrice();
 		totalPriceLbl.setText(""+payment);
+		Restaurant.mainRestaurant.saveMeal(Restaurant.mainRestaurant.currentLoggedInUser.name, "Fried Potatos");
+
     }
 
     @FXML
@@ -383,6 +392,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		setTotalPrice(+dishOrder.setPriceAfterTax(3, getnPie(), dessertTax));
 		payment+=getTotalPrice();
 		totalPriceLbl.setText(""+payment);
+		Restaurant.mainRestaurant.saveMeal(Restaurant.mainRestaurant.currentLoggedInUser.name, "Apple Pie");
 
     }
 
@@ -392,6 +402,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		setTotalPrice(dishOrder.setPriceAfterTax(1, getnSalad(), appetizerTax));
 		payment+=getTotalPrice();
 		totalPriceLbl.setText(""+payment);
+		Restaurant.mainRestaurant.saveMeal(Restaurant.mainRestaurant.currentLoggedInUser.name, "Greek Salade");
 
     }
 
@@ -401,6 +412,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		setTotalPrice(+dishOrder.setPriceAfterTax(5, getnSoup(), mainTax));
 		payment+=getTotalPrice();
 		totalPriceLbl.setText(""+payment);
+		Restaurant.mainRestaurant.saveMeal(Restaurant.mainRestaurant.currentLoggedInUser.name, "Mushroom Soup");
 
     }
 
@@ -411,6 +423,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		payment+=getTotalPrice();
 		totalPriceLbl.setText(""+payment);
 
+		Restaurant.mainRestaurant.saveMeal(Restaurant.mainRestaurant.currentLoggedInUser.name, "Beef Steak");
 
     }
 
@@ -554,8 +567,7 @@ public void setIsReserved(Boolean isReserved) {
 
 	public void initialize(URL location, ResourceBundle resources) {
     	seats.setItems(list);
-
-			}
-
-
+    	
 	}
+
+}
