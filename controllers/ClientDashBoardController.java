@@ -138,9 +138,6 @@ public class ClientDashBoardController extends Stage implements Initializable{
     private Label totalPriceLbl;
 
     @FXML
-    private ChoiceBox<?> seats;
-
-    @FXML
     private Button saveBtn;
 
     @FXML
@@ -264,14 +261,14 @@ public class ClientDashBoardController extends Stage implements Initializable{
 	 if(seats.getValue()=="Table 1 [5 seats]")
 		{
 		    Restaurant.mainRestaurant.setK(0);
-	    	Restaurant.mainRestaurant.xmlModifier("Restaurant.mainRestaurant.getK(),true;
+	    	Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
 			table1Btn.setStyle("-fx-background-color: #494545");
 			confirmBtn.setDisable(true);
 		}
 	  else	if(seats.getValue()=="Table 2 [12 seats]")
 		{
 			Restaurant.mainRestaurant.setK(1);
-    	    Restaurant.mainRestaurant.xmlModifier("Restaurant.mainRestaurant.getK(),true);
+    	    Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
 		    table2Btn.setStyle("-fx-background-color: #494545");
 			confirmBtn.setDisable(true);
 
@@ -279,7 +276,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
 	  else if(seats.getValue()=="Table 3 [12 seats]")
 		{
 			    Restaurant.mainRestaurant.setK(2);
-		    	Restaurant.mainRestaurant.xmlModifier("Restaurant.mainRestaurant.getK(),true);
+		    	Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
 				table3Btn.setStyle("-fx-background-color: #494545");
 				confirmBtn.setDisable(true);
 
@@ -299,7 +296,6 @@ public class ClientDashBoardController extends Stage implements Initializable{
 			    Restaurant.mainRestaurant.setK(4);
 		    	Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(),true);
 				table5Btn.setStyle("-fx-background-color: #494545");
-				res1.setText("Table 5");
 				confirmBtn.setDisable(true);
 		}
 	  else if(seats.getValue()=="Table 6 [7 seats]")
@@ -335,7 +331,7 @@ public class ClientDashBoardController extends Stage implements Initializable{
     	for(int i=0;i<7;i++)
     	{
     		Restaurant.mainRestaurant.setK(i);
-    		Restaurant.mainRestaurant.xmlModifier("table",Restaurant.mainRestaurant.getK(), false,0f,0);
+    		Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(), false);
     	}
 		table1Btn.setStyle("-fx-background-color: #ffffff");
 		table2Btn.setStyle("-fx-background-color: #ffffff");
@@ -344,7 +340,6 @@ public class ClientDashBoardController extends Stage implements Initializable{
 		table5Btn.setStyle("-fx-background-color: #ffffff");
 		table6Btn.setStyle("-fx-background-color: #ffffff");
 		table7Btn.setStyle("-fx-background-color: #ffffff");
-		res1.setText("");
 		confirmBtn.setDisable(false);
 
     }
@@ -537,14 +532,14 @@ public void setIsReserved(Boolean isReserved) {
 	final Float appetizerTax=0.10f;
 	final Float mainTax=0.15f;
 	final Float dessertTax=0.20f;
-	private Float totalPrice;
+	private Float totalPayment;
 	public Float getTotalPrice() {
-		return totalPrice;
+		return totalPayment;
 	}
 
 
-	public void setTotalPrice(Float totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setTotalPrice(Float totalPayment) {
+		this.totalPayment = totalPayment;
 	}
 
 
