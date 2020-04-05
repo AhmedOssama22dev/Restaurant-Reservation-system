@@ -333,13 +333,13 @@ public class ClientDashBoardController extends Stage implements Initializable{
     		Restaurant.mainRestaurant.setK(i);
     		Restaurant.mainRestaurant.xmlModifier(Restaurant.mainRestaurant.getK(), false);
     	}
-		table1Btn.setStyle("-fx-background-color: #ffffff");
-		table2Btn.setStyle("-fx-background-color: #ffffff");
-		table3Btn.setStyle("-fx-background-color: #ffffff");
-		table4Btn.setStyle("-fx-background-color: #ffffff");
-		table5Btn.setStyle("-fx-background-color: #ffffff");
-		table6Btn.setStyle("-fx-background-color: #ffffff");
-		table7Btn.setStyle("-fx-background-color: #ffffff");
+		table1Btn.setStyle("-fx-background-color: #000000");
+		table2Btn.setStyle("-fx-background-color: #000000");
+		table3Btn.setStyle("-fx-background-color: #000000");
+		table4Btn.setStyle("-fx-background-color: #000000");
+		table5Btn.setStyle("-fx-background-color: #000000");
+		table6Btn.setStyle("-fx-background-color: #000000");
+		table7Btn.setStyle("-fx-background-color: #000000");
 		confirmBtn.setDisable(false);
 
     }
