@@ -135,6 +135,28 @@ public class Restaurant {
 		return reservations;
 	}
 	
+	public ObservableList<Check> fetchCheckouts() {
+
+		fetchUpdatedData();
+
+		ObservableList<Check> checkouts = FXCollections.observableArrayList();
+		
+		for (Table table : tables) {
+			if (table.isReserved == true) {
+				Integer totalAmount = 0;
+				
+				for (OrderedMeal meal : table.getOrderedMeals()) {
+					totalAmount += meal.getPrice();
+				}
+				
+				Check check = new Check(table.tableNumber, totalAmount);
+				checkouts.add(check);
+			}
+		}
+		
+		return checkouts;
+	}
+	
 	public ObservableList<OrderedMeal> fetchOrderedMeals() {
 
 		fetchUpdatedData();
@@ -150,6 +172,19 @@ public class Restaurant {
 		}
 		
 		return orderedMeals;
+	}
+	
+	public ObservableList<SystemUser> fetchSystemUsers() {
+
+		fetchUpdatedData();
+
+		ObservableList<SystemUser> systemUsersList = FXCollections.observableArrayList();
+		
+		for (SystemUser systemUser : systemUsers) {
+			systemUsersList.add(systemUser);
+		}
+		
+		return systemUsersList;
 	}
 	
 	private void fetchUpdatedData() {
@@ -234,7 +269,7 @@ public class Restaurant {
 								}
 							}
 							
-							orderedMeals.add(new OrderedMeal(orderedMealClientName, referencedDish.getCategory(), referencedDish.name, tableNumber));
+							orderedMeals.add(new OrderedMeal(orderedMealClientName, referencedDish.getCategory(), referencedDish.name, tableNumber, referencedDish.price));
 						}
 						
 						

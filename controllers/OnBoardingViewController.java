@@ -15,10 +15,11 @@ import controllers.*;
 public class OnBoardingViewController extends Stage {
 
 	public OnBoardingView onBoardingView = new OnBoardingView();
+	
 	public ClientDashBoardController clientDashboard;
 	public WaiterDashboardViewController waiterDashboard;
 	public CookerDashboardViewController cookerDashboard;
-
+	public ManagerDashboardViewController managerDashboard;
 
 	public OnBoardingViewController(StageStyle style) {
 		super(style);
@@ -63,7 +64,26 @@ public class OnBoardingViewController extends Stage {
 						}
 
 					} else if (authenticatedUser.role.equals(SystemUserRole.MANAGER)) {
+						
+						if (managerDashboard == null) {
+							managerDashboard = new ManagerDashboardViewController(StageStyle.DECORATED);
+							managerDashboard.setResizable(false);
+							managerDashboard.setMaximized(false);
+							managerDashboard.setOrderedMeals(Restaurant.mainRestaurant.fetchOrderedMeals());
+							managerDashboard.setSystemUsers(Restaurant.mainRestaurant.fetchSystemUsers());
+							managerDashboard.setReservations(Restaurant.mainRestaurant.fetchReservations());
+							managerDashboard.setCheckouts(Restaurant.mainRestaurant.fetchCheckouts());
+							managerDashboard.setManagerUser(authenticatedUser);
+							managerDashboard.setOnCloseRequest(new EventHandler<WindowEvent>() {
+	                                 public void handle(WindowEvent we) {
+	                                	   OnBoardingViewController.this.show();
+	                                	   managerDashboard.close();
+	                                 }
+	                        });
+						}
 
+						managerDashboard.show();
+						
 					} else if (authenticatedUser.role.equals(SystemUserRole.WAITER)) {
 
 						if (waiterDashboard == null) {

@@ -13,7 +13,7 @@ import models.*;
 
 public class CookerDashboardView extends Scene {
 	
-public static VBox vStack = new VBox();
+	public static VBox vStack = new VBox();
 	
 	public Label greetingLabel = new Label("Hi Chef,\nMEALS ORDERED TODAY");
 
